@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix clientside",
+    "clientinstall": "npm install --refix clientside",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Devansh Shah",
   "license": "ISC",
