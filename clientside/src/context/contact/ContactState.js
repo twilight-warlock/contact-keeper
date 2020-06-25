@@ -16,7 +16,7 @@ const ContactState = (props) => {
   const initialState = {
     contacts: [
       {
-        _id: { $oid: "5ef1aee68b368b46fc9945a0" },
+        id: 0,
         type: "professional",
         name: "Vision",
         email: "vish0301@gmail.com",
@@ -26,7 +26,7 @@ const ContactState = (props) => {
         __v: { $numberInt: "0" },
       },
       {
-        _id: { $oid: "5ef1af898b368b46fc9945a1" },
+        id: 1,
         type: "personal",
         name: "Thor",
         email: "beerbelly@gmail.com",
@@ -49,6 +49,12 @@ const ContactState = (props) => {
   };
 
   //   Delete Contact
+  const deleteContact = (id) => {
+    dispatch({
+      type: DELETE_CONTACT,
+      payload: id,
+    });
+  };
 
   // Set Current Contact
 
@@ -65,6 +71,7 @@ const ContactState = (props) => {
       value={{
         contacts: state.contacts,
         addContact,
+        deleteContact,
       }}
     >
       {props.children}
