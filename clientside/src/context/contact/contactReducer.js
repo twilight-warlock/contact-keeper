@@ -23,9 +23,6 @@ export default (state, action) => {
         ),
       };
     case DELETE_CONTACT:
-      const delcontact = state.contacts.filter(
-        (contact) => contact.id === action.payload
-      );
       return {
         ...state,
         contacts: state.contacts.filter(

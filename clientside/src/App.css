@@ -2,11 +2,11 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
-  --dark-color: #333333;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --primary-color: #0429a3;
+  --dark-color: #3b3a3a;
+  --light-color: #ece9e9;
+  --danger-color: #f3341a;
+  --success-color: #0fb926;
 }
 
 * {
@@ -205,22 +205,26 @@ img {
 .btn-block {
   display: block;
   width: 100%;
+  border: 1px solid rgb(184, 184, 184);
+  border-radius: 50px;
 }
 
 .btn-sm {
   font-size: 0.8rem;
   padding: 0.3rem 1rem;
   margin-right: 0.2rem;
+  border-radius: 15px;
 }
 
 .badge {
-  font-size: 0.8rem;
-  padding: 0.2rem 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
   text-align: center;
   margin: 0.3rem;
   background: var(--light-color);
   color: #333;
-  border-radius: 5px;
+  letter-spacing: 0.8px;
+  border-radius: 50px;
 }
 
 .alert {
