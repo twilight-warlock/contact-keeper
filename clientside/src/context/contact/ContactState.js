@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { v4 } from "uuid";
+import axios from "axios";
 import ContactContext from "./contactContext";
 import contactReducer from "./contactReducer";
 import {
@@ -10,44 +10,39 @@ import {
   UPDATE_CONTACT,
   FILTER_CONTACTS,
   CLEAR_FILTER,
+  CONTACT_ERROR,
 } from "../types";
 
 const ContactState = (props) => {
   const initialState = {
-    contacts: [
-      {
-        id: 0,
-        type: "professional",
-        name: "Vision",
-        email: "vish0301@gmail.com",
-        phone: "111-111-1111",
-        user: { $oid: "5ef060406fb31b4be8a19ae1" },
-        date: { $date: { $numberLong: "1592897254437" } },
-        __v: { $numberInt: "0" },
-      },
-      {
-        id: 1,
-        type: "personal",
-        name: "Thor",
-        email: "beerbelly@gmail.com",
-        phone: "222-222-2222",
-        user: { $oid: "5ef060406fb31b4be8a19ae1" },
-        date: { $date: { $numberLong: "1592897417846" } },
-        __v: { $numberInt: "0" },
-      },
-    ],
+    contacts: [],
     current: null,
     filtered: null,
+    error: null,
   };
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   //   Add Contact
-  const addContact = (contact) => {
-    contact.id = v4();
-    dispatch({
-      type: ADD_CONTACT,
-      payload: contact,
-    });
+  const addContact = async (contact) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const res = await axios.post("/api/contacts", contact, config);
+
+      dispatch({
+        type: ADD_CONTACT,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: err.response.msg,
+      });
+    }
   };
 
   //   Delete Contact
@@ -102,6 +97,7 @@ const ContactState = (props) => {
         contacts: state.contacts,
         current: state.current,
         filtered: state.filtered,
+        error: state.error,
         addContact,
         deleteContact,
         setCurrent,
