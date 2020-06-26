@@ -10,10 +10,24 @@ const Navbar = ({ title, icon }) => {
       </h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <i className="fa fa-home"></i> Home
+          </Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about">
+            <i className="fa fa-info"></i> About
+          </Link>
+        </li>
+        <li>
+          <Link to="/register">
+            <i className="fa fa-user-plus"></i> Sign up
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            <i className="fa fa-user"></i> Login
+          </Link>
         </li>
       </ul>
     </div>
