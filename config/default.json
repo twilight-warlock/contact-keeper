@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://warlock:123@contactkeeper-iz3v7.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "jwtSecret": "Do not tell anyone"
-}
