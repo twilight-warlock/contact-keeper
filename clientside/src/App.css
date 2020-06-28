@@ -4,7 +4,7 @@
 :root {
   --primary-color: linear-gradient(to right, #000046, #1896b9);
   --dark-color: linear-gradient(to left, #a7acaf, #2c3e50);
-  --light-color: linear-gradient(to left, #dfecec, #e8e8f1);
+  --light-color: linear-gradient(to left, #f4ffff, #f3f3f3);
   --danger-color: linear-gradient(to left, #e73922, #f58d17);
   --success-color: linear-gradient(to right, #3f924c, #15bb15);
 }

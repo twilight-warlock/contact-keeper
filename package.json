@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix clientside",
     "clientinstall": "npm install --refix clientside",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix clientside && npm run build --prefix clientside"
   },
   "author": "Devansh Shah",
   "license": "ISC",
